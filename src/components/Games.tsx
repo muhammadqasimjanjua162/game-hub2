@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-interface Game {
-  id: number;
-  name: string;
-}
-interface gamesProps {
-  results: Game[];
-  count: number;
-}
+import useGames from "../hooks/useGames";
 
 const Games = () => {
-  const [games, setGame] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-  console.log(games, "gamesS");
-  useEffect(() => {
-    apiClient
-      .get<gamesProps>("/games")
-      .then((res) => setGame(res.data.results))
-      .catch((err) => setError(err.message));
-  }, []);
+  const { games, error } = useGames();
+
   console.log(games, "gaerrrr");
   return (
     <div>

@@ -1,21 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./App.css";
 import NavBar from "./components/NavBar";
+import Games from "./components/Games";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      window.document.documentElement.classList.add("dark");
+      setIsDarkMode(true);
+    }
+  }, []);
+  const handleClick = () => {
+    if (isDarkMode) {
+      window.document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+      window.document.documentElement.classList.add("dark");
+    }
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     <>
-      <h1 className="text-4xl font-bold text-center text-blue-500 bg-yellow-200">
-        Tailwind CSS Test Heading
-      </h1>
       <div>
         <div>
-          <NavBar />
-        </div>
-        <div className="w-full flex flex-row">
-          <div className="bg-red-400 w-full hidden lg:block">aside</div>
-          <div className="bg-red-500 w-full">main</div>
+          <div>
+            <NavBar handleClick={handleClick} isDarkMode={isDarkMode} />
+          </div>
+          <div className="w-full flex flex-row">
+            <div className="w-full hidden lg:block">aside</div>
+            <div className="w-full">
+              <Games />
+            </div>
+          </div>
         </div>
       </div>
     </>

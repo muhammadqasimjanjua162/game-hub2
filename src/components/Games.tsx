@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import useGames from "../hooks/useGames";
+import GameCard from "./GameCard";
 
 const Games = () => {
   const { games, error } = useGames();
@@ -9,11 +10,13 @@ const Games = () => {
   return (
     <div>
       {error && <p>{error}</p>}
-      <ul>
-        {games?.map((game) => (
-          <li key={game.id}>{game.name}</li>
+      <div className="flex flex-wrap gap-4 p-4 justify-between">
+        {games.map((game) => (
+          <div key={game.id} className="w-full sm:w-1/2 lg:w-3/12 p-2">
+            <GameCard game={game} />
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

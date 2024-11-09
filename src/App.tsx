@@ -31,9 +31,14 @@ function App() {
           <div>
             <NavBar handleClick={handleClick} isDarkMode={isDarkMode} />
           </div>
-          <div className="w-full flex flex-row">
-            <div className="w-full hidden lg:block">aside</div>
-            <div className="w-full">
+          <div className="flex flex-row">
+            <div
+              className="w-2/12 hidden lg:block "
+              style={{ backgroundColor: "green" }}
+            >
+              aside
+            </div>
+            <div className="w-full 10/12">
               <Games />
             </div>
           </div>

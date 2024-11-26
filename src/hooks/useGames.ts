@@ -19,6 +19,7 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  criticScore: number;
 }
 interface gamesProps {
   results: Game[];
@@ -28,21 +29,27 @@ interface gamesProps {
 const useGames = () => {
   const [games, setGame] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setisLoading] = useState(false);
   console.log(games, "gamesS");
   useEffect(() => {
     const controller = new AbortController();
+    setisLoading(true);
     apiClient
       .get<gamesProps>("/games", {
         signal: controller.signal,
       })
-      .then((res) => setGame(res.data.results))
+      .then((res) => {
+        setGame(res.data.results);
+        setisLoading(false);
+      })
       .catch((err) => {
         if (err.name === "CanceledError") return;
         setError(err.message);
+        setisLoading(false);
       });
     return () => controller.abort();
   }, []);
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;

@@ -29,14 +29,11 @@ function App() {
     <>
       <div>
         <div>
-          <div>
+          <div className="px-4 mb-5 mt-5">
             <NavBar handleClick={handleClick} isDarkMode={isDarkMode} />
           </div>
           <div className="flex flex-row">
-            <div
-              className="w-2/12 hidden lg:block p-5 "
-              style={{ backgroundColor: "green" }}
-            >
+            <div className="w-2/12 hidden lg:block p-5 ">
               <GenreList />
             </div>
             <div className="w-full 10/12">

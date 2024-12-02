@@ -1,7 +1,7 @@
-import React from "react";
 import { Game } from "../hooks/useGames";
 import PlatformIconsList from "./PlatformIconsList";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "../services/image-url";
 import useGames from "../hooks/useGames";
 
 interface Props {
@@ -9,7 +9,8 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
-  const { games, error, isLoading } = useGames();
+  console.log(game.background_image, "omg");
+  const { isLoading } = useGames();
   console.log(isLoading, "myload");
 
   console.log(game, "galowsss");
@@ -17,6 +18,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
       <img src={game.background_image} className="w-full h-48 object-cover" />
+
       <h3 className="text-lg font-semibold text-center w-full p-1 text-green-600 ">
         {game.name}
       </h3>

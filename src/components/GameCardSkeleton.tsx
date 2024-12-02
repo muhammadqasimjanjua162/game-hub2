@@ -1,6 +1,3 @@
-import React from "react";
-import { Typography } from "@material-tailwind/react";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const GameCardSkeleton = () => {

@@ -14,33 +14,29 @@ export interface Platform {
 
 // Define the main platform details interface
 
-export interface Game {
+export interface Genre {
   id: number;
   name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  criticScore: number;
-  metacritic: string;
 }
-interface gamesProps {
-  results: Game[];
+interface fetchGenreResponse {
+  results: Genre[];
   count: number;
 }
 
-const useGames = () => {
-  const [games, setGame] = useState<Game[]>([]);
+const useGenre = () => {
+  const [genre, setGenre] = useState<Genre[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
-  console.log(games, "gamesS");
+  //   console.log(games, "gamesS");
   useEffect(() => {
     const controller = new AbortController();
     setisLoading(true);
     apiClient
-      .get<gamesProps>("/games", {
+      .get<fetchGenreResponse>("/genres", {
         signal: controller.signal,
       })
       .then((res) => {
-        setGame(res.data.results);
+        setGenre(res.data.results);
         setisLoading(false);
       })
       .catch((err) => {
@@ -50,7 +46,7 @@ const useGames = () => {
       });
     return () => controller.abort();
   }, []);
-  return { games, error, isLoading };
+  return { genre, error, isLoading };
 };
 
-export default useGames;
+export default useGenre;

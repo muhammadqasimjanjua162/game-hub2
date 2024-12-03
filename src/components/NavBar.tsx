@@ -8,6 +8,7 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ handleClick, isDarkMode }) => {
+  console.log("nav render ");
   return (
     <div className="flex flex-row w-full items-center justify-between ">
       <div className="flex flex-row w-full items-center">

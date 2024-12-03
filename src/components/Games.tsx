@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import useGames from "../hooks/useGames";
+
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { Genre } from "../hooks/useGenre";
+import useGames, { Game } from "../hooks/useGames";
+import useData from "../hooks/useData";
+interface Props {
+  selectedGenre: Genre | null;
+}
 
 const Games = () => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
 
-  console.log(games, "gaerrrr");
+  // console.log(games, "gaerrrr");
   console.log(isLoading, "loadingssssss");
   return (
     <div>
@@ -19,7 +24,7 @@ const Games = () => {
                 <GameCardSkeleton />
               </div>
             ))
-          : games.map((game) => (
+          : data.map((game) => (
               <div key={game.id}>
                 <GameCard game={game} />
               </div>

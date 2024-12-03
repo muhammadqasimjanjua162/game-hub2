@@ -1,17 +1,19 @@
 import { Game } from "../hooks/useGames";
 import PlatformIconsList from "./PlatformIconsList";
 import CriticScore from "./CriticScore";
+//this component is rendring multie times
 import getCroppedImageUrl from "../services/image-url";
-import useGames from "../hooks/useGames";
+// import useGames from "../hooks/useGames";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+  console.log(game, "mygame");
   console.log(game.background_image, "omg");
-  const { isLoading } = useGames();
-  console.log(isLoading, "myload");
+  // const { isLoading } = useGames();
+  // console.log(isLoading, "myload");
 
   console.log(game, "galowsss");
   console.log(game.parent_platforms, "plate");

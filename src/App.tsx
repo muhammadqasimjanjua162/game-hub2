@@ -4,10 +4,12 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Games from "./components/Games";
 import GenreList from "./components/GenreList";
+import { Genre } from "./hooks/useGenre";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  console.log("rendering");
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
@@ -25,6 +27,10 @@ function App() {
     }
     setIsDarkMode(!isDarkMode);
   };
+  const handleGenre = (genre: Genre) => {
+    setSelectedGenre(genre);
+  };
+  console.log(selectedGenre, "this selected");
   return (
     <>
       <div>
@@ -34,7 +40,7 @@ function App() {
           </div>
           <div className="flex flex-row">
             <div className="w-2/12 hidden lg:block p-5 ">
-              <GenreList />
+              <GenreList handleGenre={handleGenre} />
             </div>
             <div className="w-full 10/12">
               <Games />

@@ -6,10 +6,14 @@ import Games from "./components/Games";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/useData";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
   console.log("rendering");
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -32,7 +36,11 @@ function App() {
     console.log(genre, "vlas");
     setSelectedGenre(genre);
   };
+  const onSelectPlateform = (plateform: Platform) => {
+    setSelectedPlatform(plateform);
+  };
   console.log(selectedGenre, "this selected");
+  console.log(selectedPlatform, "platedelect");
   return (
     <>
       <div>
@@ -48,8 +56,11 @@ function App() {
               />
             </div>
             <div className="w-full 10/12">
-              <PlatformSelector />
-              <Games selectedGenre={selectedGenre} />
+              <PlatformSelector onSelectPlateform={onSelectPlateform} />
+              <Games
+                selectedPlatform={selectedPlatform}
+                selectedGenre={selectedGenre}
+              />
             </div>
           </div>
         </div>

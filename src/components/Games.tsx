@@ -3,14 +3,16 @@ import React, { useEffect, useState } from "react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import { Genre } from "../hooks/useGenre";
-import useGames, { Game } from "../hooks/useGames";
+import useGames, { Game, Platform } from "../hooks/useGames";
 import useData from "../hooks/useData";
 interface Props {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const Games = ({ selectedGenre }: Props) => {
-  const { data, error, isLoading } = useGames(selectedGenre);
+const Games = ({ selectedGenre, selectedPlatform }: Props) => {
+  console.log(selectedPlatform, "plato");
+  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
 
   // console.log(games, "gaerrrr");
   console.log(isLoading, "loadingssssss");

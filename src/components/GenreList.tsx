@@ -2,8 +2,10 @@ import useGenre, { Genre } from "../hooks/useGenre";
 
 type Props = {
   handleGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 };
-const GenreList = ({ handleGenre }: Props) => {
+const GenreList = ({ handleGenre, selectedGenre }: Props) => {
+  console.log(selectedGenre, "myselet");
   const { data, isLoading, error } = useGenre();
   // console.log(genre, "newGen");
   if (error) return null;
@@ -34,24 +36,24 @@ const GenreList = ({ handleGenre }: Props) => {
       <ul>
         {data.map((genre) => {
           return (
-            <ul key={genre.id} className="flex items-center">
-              <li className="py-2 ">
-                <img
-                  src={genre.image_background}
-                  className="w-7 h-7 rounded "
-                  alt="example image"
-                />
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="font-medium rounded-lg text-sm px-5    focus:outline-none  "
-                  onClick={() => handleGenre(genre)}
-                >
-                  {genre.name}
-                </button>
-              </li>
-            </ul>
+            <li key={genre.id} className="flex items-center py-2">
+              <img
+                src={genre.image_background}
+                className="w-7 h-7 rounded"
+                alt="genre"
+              />
+              <button
+                type="button"
+                className={`rounded-lg text-sm px-5 focus:outline-none ${
+                  selectedGenre && genre.name === selectedGenre.name
+                    ? "font-bold"
+                    : "font-medium"
+                }`}
+                onClick={() => handleGenre(genre)}
+              >
+                {genre.name}
+              </button>
+            </li>
           );
         })}
       </ul>

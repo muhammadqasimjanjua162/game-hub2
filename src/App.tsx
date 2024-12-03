@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Games from "./components/Games";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenre";
+import PlatformSelector from "./components/PlatformSelector";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,6 +29,7 @@ function App() {
     setIsDarkMode(!isDarkMode);
   };
   const handleGenre = (genre: Genre) => {
+    console.log(genre, "vlas");
     setSelectedGenre(genre);
   };
   console.log(selectedGenre, "this selected");
@@ -40,10 +42,14 @@ function App() {
           </div>
           <div className="flex flex-row">
             <div className="w-2/12 hidden lg:block p-5 ">
-              <GenreList handleGenre={handleGenre} />
+              <GenreList
+                handleGenre={handleGenre}
+                selectedGenre={selectedGenre}
+              />
             </div>
             <div className="w-full 10/12">
-              <Games />
+              <PlatformSelector />
+              <Games selectedGenre={selectedGenre} />
             </div>
           </div>
         </div>

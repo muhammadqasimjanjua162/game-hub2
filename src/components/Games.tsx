@@ -9,8 +9,8 @@ interface Props {
   selectedGenre: Genre | null;
 }
 
-const Games = () => {
-  const { data, error, isLoading } = useGames();
+const Games = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useGames(selectedGenre);
 
   // console.log(games, "gaerrrr");
   console.log(isLoading, "loadingssssss");

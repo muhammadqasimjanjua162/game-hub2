@@ -9,6 +9,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useData";
 import SortSelector from "./components/SortSelector";
 import SearchInput from "./components/SearchInput";
+import GameHeading from "./components/GameHeading";
 export interface GameQuery {
   genre: Genre | null;
   plateform: Platform | null;
@@ -79,6 +80,7 @@ function App() {
               />
             </div>
             <div className="w-full 10/12">
+              <GameHeading gameQuery={gameQuery} />
               <div className="flex row  items-center">
                 <PlatformSelector onSelectPlateform={onSelectPlateform} />
                 <SortSelector

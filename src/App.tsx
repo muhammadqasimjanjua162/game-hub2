@@ -7,9 +7,11 @@ import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useData";
+import SortSelector from "./components/SortSelector";
 export interface GameQuery {
   genre: Genre | null;
   plateform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -47,6 +49,12 @@ function App() {
       plateform,
     });
   };
+  const onSelectSortOrder = (sortOrder) => {
+    setGameQuery({
+      ...gameQuery,
+      sortOrder,
+    });
+  };
   console.log(selectedGenre, "this selected");
   console.log(selectedPlatform, "platedelect");
   return (
@@ -64,7 +72,11 @@ function App() {
               />
             </div>
             <div className="w-full 10/12">
-              <PlatformSelector onSelectPlateform={onSelectPlateform} />
+              <div className="flex row  items-center">
+                <PlatformSelector onSelectPlateform={onSelectPlateform} />
+                <SortSelector onSelectSortOrder={onSelectSortOrder} />
+              </div>
+
               <Games gameQuery={gameQuery} />
             </div>
           </div>

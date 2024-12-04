@@ -19,7 +19,7 @@ const GameCard = ({ game }: Props) => {
   console.log(game.parent_platforms, "plate");
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
-      <img src={game.background_image} className="w-full h-48 object-cover" />
+      <img src={getCroppedImageUrl(game.background_image)} className="w-full h-48 object-cover" />
 
       <h3 className="text-lg font-semibold text-center w-full p-1 text-green-600 ">
         {game.name}

@@ -3,9 +3,10 @@ import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void;
+  sortOrder: string;
 }
 
-const SortSelector = ({ onSelectSortOrder }: Props) => {
+const SortSelector = ({ sortOrder, onSelectSortOrder }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const sortOrders = [
@@ -33,6 +34,11 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
   const handleItemClick = () => {
     setIsOpen(false); // Close the dropdown when a platform is clicked
   };
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  );
+  console.log(sortOrder, "myorder");
+  console.log(currentSortOrder, "currentOrder");
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -47,7 +53,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
         onClick={toggleDropdown}
         className="w-auto px-4 py-2 text-lg font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between"
       >
-        Order By: Relevence
+        Order By:{currentSortOrder ? currentSortOrder.label : "Relevence"}
         <svg
           className={`w-5 h-5 ml-2 transform ${
             isOpen ? "rotate-180" : "rotate-0"

@@ -74,7 +74,10 @@ function App() {
             <div className="w-full 10/12">
               <div className="flex row  items-center">
                 <PlatformSelector onSelectPlateform={onSelectPlateform} />
-                <SortSelector onSelectSortOrder={onSelectSortOrder} />
+                <SortSelector
+                  sortOrder={gameQuery.sortOrder}
+                  onSelectSortOrder={onSelectSortOrder}
+                />
               </div>
 
               <Games gameQuery={gameQuery} />

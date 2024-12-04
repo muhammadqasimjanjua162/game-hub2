@@ -8,10 +8,12 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useData";
 import SortSelector from "./components/SortSelector";
+import SearchInput from "./components/SearchInput";
 export interface GameQuery {
   genre: Genre | null;
   plateform: Platform | null;
   sortOrder: string;
+  search: string;
 }
 
 function App() {
@@ -57,12 +59,17 @@ function App() {
   };
   console.log(selectedGenre, "this selected");
   console.log(selectedPlatform, "platedelect");
+  console.log(gameQuery.search, "this search");
   return (
     <>
       <div>
         <div>
-          <div className="px-4 mb-5 mt-5">
-            <NavBar handleClick={handleClick} isDarkMode={isDarkMode} />
+          <div className=" mb-5 mt-5">
+            <NavBar
+              onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+              handleClick={handleClick}
+              isDarkMode={isDarkMode}
+            />
           </div>
           <div className="flex flex-row">
             <div className="w-2/12 hidden lg:block p-5 ">

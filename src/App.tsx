@@ -7,9 +7,14 @@ import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useData";
+export interface GameQuery {
+  genre: Genre | null;
+  plateform: Platform | null;
+}
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
     null
@@ -34,10 +39,13 @@ function App() {
   };
   const handleGenre = (genre: Genre) => {
     console.log(genre, "vlas");
-    setSelectedGenre(genre);
+    setGameQuery({ ...gameQuery, genre });
   };
   const onSelectPlateform = (plateform: Platform) => {
-    setSelectedPlatform(plateform);
+    setGameQuery({
+      ...gameQuery,
+      plateform,
+    });
   };
   console.log(selectedGenre, "this selected");
   console.log(selectedPlatform, "platedelect");
@@ -52,15 +60,12 @@ function App() {
             <div className="w-2/12 hidden lg:block p-5 ">
               <GenreList
                 handleGenre={handleGenre}
-                selectedGenre={selectedGenre}
+                selectedGenre={gameQuery.genre}
               />
             </div>
             <div className="w-full 10/12">
               <PlatformSelector onSelectPlateform={onSelectPlateform} />
-              <Games
-                selectedPlatform={selectedPlatform}
-                selectedGenre={selectedGenre}
-              />
+              <Games gameQuery={gameQuery} />
             </div>
           </div>
         </div>

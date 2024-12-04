@@ -5,14 +5,14 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import { Genre } from "../hooks/useGenre";
 import useGames, { Game, Platform } from "../hooks/useGames";
 import useData from "../hooks/useData";
+import { GameQuery } from "../App";
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-const Games = ({ selectedGenre, selectedPlatform }: Props) => {
-  console.log(selectedPlatform, "plato");
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+const Games = ({ gameQuery }: Props) => {
+  // console.log(selectedPlatform, "plato");
+  const { data, error, isLoading } = useGames(gameQuery);
 
   // console.log(games, "gaerrrr");
   console.log(isLoading, "loadingssssss");

@@ -28,7 +28,10 @@ const useGames = (gameQuery: GameQuery) =>
         genres: gameQuery.genre?.id,
         platforms: gameQuery?.plateform?.id,
         ordering: gameQuery.sortOrder,
-        search: gameQuery.search,
+        search:
+          gameQuery.search !== "th" && gameQuery.search !== "ht"
+            ? gameQuery.search
+            : "theft",
       },
     },
     [gameQuery]

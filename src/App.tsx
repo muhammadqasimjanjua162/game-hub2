@@ -64,8 +64,8 @@ function App() {
   return (
     <>
       <div>
-        <div>
-          <div className=" mb-5 mt-5">
+        <div className="px-6">
+          <div className="mb-5 mt-5">
             <NavBar
               onSearch={(search) => setGameQuery({ ...gameQuery, search })}
               handleClick={handleClick}
@@ -73,7 +73,7 @@ function App() {
             />
           </div>
           <div className="flex flex-row">
-            <div className="w-2/12 hidden lg:block p-5 ">
+            <div className="w-2/12 hidden lg:block">
               <GenreList
                 handleGenre={handleGenre}
                 selectedGenre={gameQuery.genre}

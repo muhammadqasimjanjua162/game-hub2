@@ -9,11 +9,14 @@ interface NavBarProps {
   onSearch: (searchText: string) => void;
 }
 
-
-const NavBar: React.FC<NavBarProps> = ({ handleClick, isDarkMode,onSearch }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  handleClick,
+  isDarkMode,
+  onSearch,
+}) => {
   console.log("nav render ");
   return (
-    <div className="flex items-center justify-center w-full h-16 px-4">
+    <div className="flex items-center justify-center w-full h-16">
       {/* Logo */}
       <div className="flex items-center mr-auto">
         <img

@@ -50,7 +50,7 @@ const SortSelector = ({ sortOrder, onSelectSortOrder }: Props) => {
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="w-auto px-4 py-2 text-lg font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between"
+        className="w-auto px-4 py-1 mb-5 text-md font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between"
       >
         Order By:{currentSortOrder ? currentSortOrder.label : "Relevence"}
         <svg

@@ -37,7 +37,7 @@ const PlatformSelector = ({ onSelectPlateform }: Props) => {
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="w-48 px-4 py-2 text-lg font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between"
+        className="w-40 px-4 mr-3 mb-5 py-1 text-md font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between"
       >
         Platform
         <svg

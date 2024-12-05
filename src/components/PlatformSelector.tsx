@@ -71,7 +71,7 @@ const PlatformSelector = ({ onSelectPlateform }: Props) => {
                 }}
               >
                 <div className="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                  <label className="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label className="w-full py-2 ml-2 text-sm font-medium text-gray-800 dark:text-gray-300">
                     {platform.name}
                   </label>
                 </div>

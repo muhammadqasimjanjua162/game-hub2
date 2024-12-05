@@ -10,7 +10,6 @@ const SortSelector = ({ sortOrder, onSelectSortOrder }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const sortOrders = [
-    { value: "", label: "" },
     { value: "-added", label: "Date Added" },
     { value: "name", label: "Name" },
     { value: "-released", label: "Release Date" },
@@ -77,27 +76,22 @@ const SortSelector = ({ sortOrder, onSelectSortOrder }: Props) => {
         >
           <ul className="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200">
             <li>
-              <div className="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                <label className="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  Relevence
-                </label>
-              </div>
-            </li>
-            <li>
               {sortOrders.map((order) => (
                 <div
                   key={order.value} // Ensure each item has a unique key
                   className="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
-                  <label
-                    className="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    onClick={() => {
-                      onSelectSortOrder(order.value);
-                      handleItemClick();
-                    }} // Use arrow function to call onClick properly
-                  >
-                    {order.label}
-                  </label>
+                  {order.label ? (
+                    <label
+                      className="w-full py-2 ml-2 text-sm font-medium text-gray-800 dark:text-gray-300"
+                      onClick={() => {
+                        onSelectSortOrder(order.value);
+                        handleItemClick();
+                      }} // Use arrow function to call onClick properly
+                    >
+                      {order?.label}
+                    </label>
+                  ) : null}
                 </div>
               ))}
             </li>

@@ -3,6 +3,7 @@ import PlatformIconsList from "./PlatformIconsList";
 import CriticScore from "./CriticScore";
 //this component is rendring multie times
 import getCroppedImageUrl from "../services/image-url";
+import Emoji from "./Emoji";
 // import useGames from "../hooks/useGames";
 
 interface Props {
@@ -33,6 +34,7 @@ const GameCard = ({ game }: Props) => {
         />
         <CriticScore criticScore={game.metacritic} />
       </div>
+      <Emoji rating={game.rating_top}/>
     </div>
   );
 };

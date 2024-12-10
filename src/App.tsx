@@ -25,14 +25,20 @@ function App() {
     null
   );
   console.log("rendering");
+  console.log(isDarkMode, "lovvv");
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
       window.document.documentElement.classList.add("dark");
       setIsDarkMode(true);
+    } else {
+      localStorage.setItem("theme", "light");
+      window.document.documentElement.classList.remove("dark");
+      setIsDarkMode(false);
     }
   }, []);
   const handleClick = () => {
+    console.log(isDarkMode, "molllll");
     if (isDarkMode) {
       window.document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");

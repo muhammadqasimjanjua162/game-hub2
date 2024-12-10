@@ -44,7 +44,7 @@ const PlatformIconsList = ({ plateforms }: Props) => {
   return (
     <div className="flex flex-row justify-center">
       {plateforms.map((platform) => (
-        <div key={platform.name} className="text-gray-500">
+        <div key={platform.name} className="text-gray-500 mr-1">
           {iconMap[platform.name.toLowerCase() as PlatformName]}{" "}
         </div>
       ))}

@@ -2,14 +2,14 @@ import React from "react";
 
 const Dark = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-    </svg>
+    <div
+    className={`w-14 h-4 flex items-center rounded-full p-1 cursor-pointer `}
+  >
+    <div
+      className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${"translate-x-0"}`}
+    />
+  </div>
+    
   );
 };
 

@@ -33,7 +33,9 @@ const GenreList = ({ handleGenre, selectedGenre }: Props) => {
     );
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-4 text-gray-800">Geners</h1>
+      <h1 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
+        Geners
+      </h1>
       <ul>
         {data.map((genre: Genre[]) => {
           return (
@@ -45,7 +47,7 @@ const GenreList = ({ handleGenre, selectedGenre }: Props) => {
               />
               <button
                 type="button"
-                className={`rounded-lg text-sm focus:outline-none px-2 text-left hover:underline text-gray-800 ${
+                className={`rounded-lg text-sm focus:outline-none px-2 text-left hover:underline text-gray-800 dark:text-white ${
                   selectedGenre && genre.name === selectedGenre.name
                     ? "font-bold"
                     : "font-medium"

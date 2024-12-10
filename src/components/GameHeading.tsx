@@ -8,7 +8,9 @@ const GameHeading = ({ gameQuery }: Props) => {
     gameQuery?.plateform?.name || ""
   }          Games`;
   return (
-    <h1 className="text-5xl font-semibold mb-3 text-gray-800">{heading}</h1>
+    <h1 className="text-5xl font-semibold mb-3 text-gray-800 dark:text-white">
+      {heading}
+    </h1>
   );
 };
 

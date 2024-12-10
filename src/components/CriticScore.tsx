@@ -1,7 +1,8 @@
-import React from "react";
+type CriticScoreProps = {
+  criticScore: number;
+};
 
-const CriticScore = ({ criticScore }) => {
-  console.log(criticScore, "critc");
+const CriticScore = ({ criticScore }: CriticScoreProps) => {
   return (
     <div>
       <span

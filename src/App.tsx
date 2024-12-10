@@ -8,7 +8,7 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useData";
 import SortSelector from "./components/SortSelector";
-import SearchInput from "./components/SearchInput";
+
 import GameHeading from "./components/GameHeading";
 export interface GameQuery {
   genre: Genre | null;
@@ -20,10 +20,7 @@ export interface GameQuery {
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+
   console.log("rendering");
   console.log(isDarkMode, "lovvv");
   useEffect(() => {
@@ -58,14 +55,13 @@ function App() {
       plateform,
     });
   };
-  const onSelectSortOrder = (sortOrder) => {
+  const onSelectSortOrder = (sortOrder: string) => {
     setGameQuery({
       ...gameQuery,
       sortOrder,
     });
   };
-  console.log(selectedGenre, "this selected");
-  console.log(selectedPlatform, "platedelect");
+
   console.log(gameQuery.search, "this search");
   return (
     <>

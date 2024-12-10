@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import usePlatforms from "../hooks/usePlatforms";
-import { Platform } from "../hooks/useGames";
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void;
   sortOrder: string;

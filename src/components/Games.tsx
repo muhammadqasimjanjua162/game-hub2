@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
-
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
-import { Genre } from "../hooks/useGenre";
-import useGames, { Game, Platform } from "../hooks/useGames";
-import useData from "../hooks/useData";
+import useGames from "../hooks/useGames";
 import { GameQuery } from "../App";
 interface Props {
   gameQuery: GameQuery;

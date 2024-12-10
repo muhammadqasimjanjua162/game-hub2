@@ -10,6 +10,7 @@ interface Props {
   game: Game;
 }
 
+
 const GameCard = ({ game }: Props) => {
   console.log(game, "mygame");
   console.log(game.background_image, "omg");

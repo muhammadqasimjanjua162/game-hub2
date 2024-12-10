@@ -7,6 +7,8 @@ type Props = {
 const GenreList = ({ handleGenre, selectedGenre }: Props) => {
   console.log(selectedGenre, "myselet");
   const { data, isLoading, error } = useGenre();
+  console.log(data, "mydadada");
+
   // console.log(genre, "newGen");
   if (error) return null;
   if (isLoading)
@@ -37,7 +39,7 @@ const GenreList = ({ handleGenre, selectedGenre }: Props) => {
         Geners
       </h1>
       <ul>
-        {data.map((genre: Genre[]) => {
+        {data.flat().map((genre: Genre) => {
           return (
             <li key={genre.id} className="flex items-center py-2">
               <img

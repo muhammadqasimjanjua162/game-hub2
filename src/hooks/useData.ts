@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig } from "axios";
-interface Requirements {
-  minimum?: string | null;
-  recommended?: string | null;
-}
 
 // Define the platform interface
 export interface Platform {

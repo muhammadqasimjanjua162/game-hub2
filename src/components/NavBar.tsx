@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import Dark from "./Dark";
 import Light from "./Light";

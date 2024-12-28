@@ -3,8 +3,8 @@ import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 interface Props {
   onSelectPlateform: (plateform: Platform) => void;
-  selectPlateForm:(platefomr:string)=>void
-  plateForm:string
+  selectPlateForm:(platefomr:Platform)=>void
+  plateForm:Platform
   
 }
 
@@ -12,7 +12,6 @@ const PlatformSelector = ({ onSelectPlateform ,selectPlateForm,plateForm}: Props
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { data } = usePlatforms();
-  console.log(data, "platformssss");
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
@@ -42,7 +41,7 @@ const PlatformSelector = ({ onSelectPlateform ,selectPlateForm,plateForm}: Props
         onClick={toggleDropdown}
         className="w-40 px-4 mr-3 mb-5 py-1 text-md font-medium text-gray-800 border border-gray-300 rounded-lg shadow-sm hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center justify-between dark:text-white"
       >
-        {plateForm?plateForm.name:"Plateform"}
+        {plateForm.name?plateForm.name:"Plateform"}
         <svg
           className={`w-5 h-5 ml-2 transform ${
             isOpen ? "rotate-180" : "rotate-0"

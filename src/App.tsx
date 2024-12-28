@@ -20,10 +20,9 @@ export interface GameQuery {
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const [plateForm,setPlateForm]=useState("")
+  const [plateForm,setPlateForm]=useState({} as Platform)
 
-  console.log("rendering");
-  console.log(isDarkMode, "lovvv");
+ 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
@@ -36,7 +35,7 @@ function App() {
     }
   }, []);
   const handleClick = () => {
-    console.log(isDarkMode, "molllll");
+   
     if (isDarkMode) {
       window.document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
@@ -47,7 +46,7 @@ function App() {
     setIsDarkMode(!isDarkMode);
   };
   const handleGenre = (genre: Genre) => {
-    console.log(genre, "vlas");
+  
     setGameQuery({ ...gameQuery, genre });
   };
   const onSelectPlateform = (plateform: Platform) => {
@@ -62,12 +61,12 @@ function App() {
       sortOrder,
     });
   };
-  const selectPlateForm=(plateform:string)=>{
+  const selectPlateForm=(plateform:Platform)=>{
     setPlateForm(plateform)
 
   }
 
-  console.log(gameQuery.search, "this search");
+ 
   return (
     <>
       <div>

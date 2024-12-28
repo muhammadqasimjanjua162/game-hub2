@@ -12,14 +12,8 @@ interface Props {
 
 
 const GameCard = ({ game }: Props) => {
-  console.log(game, "mygame");
-  console.log(game.background_image, "omg");
-  // const { isLoading } = useGames();
-  // console.log(isLoading, "myload");
-
-  console.log(game, "galowsss");
-  console.log(game.parent_platforms, "plate");
   return (
+    
     <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
       <img
         src={getCroppedImageUrl(game.background_image)}

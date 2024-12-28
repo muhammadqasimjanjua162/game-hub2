@@ -7,11 +7,8 @@ interface Props {
 }
 
 const Games = ({ gameQuery }: Props) => {
-  // console.log(selectedPlatform, "plato");
   const { data, error, isLoading } = useGames(gameQuery);
 
-  // console.log(games, "gaerrrr");
-  console.log(isLoading, "loadingssssss");
   return (
     <div>
       {error && <p>{error}</p>}

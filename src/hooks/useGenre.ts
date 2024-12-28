@@ -16,6 +16,5 @@ export interface Genre {
 }
 
 const useGenre = () => useData<Genre[]>("/genres");
-console.log(useGenre, "genMen");
 
 export default useGenre;

@@ -20,6 +20,7 @@ export interface GameQuery {
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [plateForm,setPlateForm]=useState("")
 
   console.log("rendering");
   console.log(isDarkMode, "lovvv");
@@ -61,6 +62,10 @@ function App() {
       sortOrder,
     });
   };
+  const selectPlateForm=(plateform:string)=>{
+    setPlateForm(plateform)
+
+  }
 
   console.log(gameQuery.search, "this search");
   return (
@@ -83,8 +88,10 @@ function App() {
             </div>
             <div className="w-full 10/12">
               <GameHeading gameQuery={gameQuery} />
-              <div className="flex row  items-center">
-                <PlatformSelector onSelectPlateform={onSelectPlateform} />
+              <div className="flex items-center xs:flex-col sm:flex-row">
+                <PlatformSelector onSelectPlateform={onSelectPlateform}
+                selectPlateForm={selectPlateForm}
+                plateForm={plateForm} />
                 <SortSelector
                   sortOrder={gameQuery.sortOrder}
                   onSelectSortOrder={onSelectSortOrder}

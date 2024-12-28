@@ -3,6 +3,7 @@ import React from "react";
 import Dark from "./Dark";
 import Light from "./Light";
 import SearchInput from "./SearchInput";
+import Img from "../assets/logo.webp";
 interface NavBarProps {
   handleClick: () => void;
   isDarkMode: boolean;
@@ -22,7 +23,7 @@ const NavBar: React.FC<NavBarProps> = ({
       <div className="flex items-center mr-auto">
         <img
           className="h-10 w-10 object-cover object-center"
-          src="./src/assets/logo.webp"
+          src={Img}
           alt="nature image"
         />
       </div>

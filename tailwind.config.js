@@ -3,7 +3,13 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: "200px",
+        sm: "400px", // Custom breakpoint for smaller screens
+        mobile: "480px",
+      },
+    },
   },
   plugins: [],
 };
